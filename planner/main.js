@@ -12,21 +12,46 @@ const args = () => ({ a: randInt(0, 40), b: randInt(0, 40) })
 const generateTasks = (i) =>
   new Array(i).fill(1).map((_) => ({ type: taskType(), args: args() }))
 
-  let workers = []
-  // Ajouter 10 workers
-  for (let i = 1; i <= 10; i++) {
-    const workerType = Math.random() < 0.5 ? 'mult' : 'add';
+  // Configuration pour les workers spécialisés
+let multWorkers = [];
+let addWorkers = [];
 
-    const worker = {
-      url: "http://worker"+ i + ":8080",
-      id: i.toString(),
-      type: workerType,
-    };
-    workers.push(worker); 
-  }
+for (let i = 1; i <= 10; i++) {
+  multWorkers.push({
+    url: "http://worker" + i + ":8080",
+    id: i.toString(),
+    type: 'mult',
+  });
 
-  let multWorkers = workers.filter((w) => w.type === 'mult');
-  let addWorkers = workers.filter((w) => w.type === 'add');
+  addWorkers.push({
+    url: "http://worker" + i + ":8070",
+    id: i.toString(),
+    type: 'add',
+  });
+}
+
+// Configuration pour les workers généralistes
+let generalWorkers = [];
+
+for (let i = 11; i <= 20; i++) {
+  const workerType = Math.random() < 0.5 ? 'mult' : 'add';
+
+  generalWorkers.push({
+    url: "http://worker" + i + ":8080",
+    id: i.toString(),
+    type: workerType,
+  });
+}
+
+// Concaténer les trois listes pour obtenir la configuration complète
+let allWorkers = multWorkers.concat(addWorkers, generalWorkers);
+
+// Utiliser le tableau global workers pour stocker tous les workers
+let workers = allWorkers;
+
+// Afficher la configuration complète
+console.log(workers);
+
 const app = express()
 app.use(express.json())
 app.use(
