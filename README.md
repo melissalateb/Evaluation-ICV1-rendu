@@ -7,3 +7,7 @@
         # Dans le répertoire principal où se trouvent les dossiers planner et worker
         docker-compose build
         docker-compose up
+4 - Modification du nombre de tache a lancer dans le main 20 --> 4
+# Exercice 2: Etapes
+1 - Modification de la ligne 12 pour ajouter une adress du worker : let workers = ['http://localhost:8080']
+2 - Execution du script './connect.sh 8080 8070' pour pouvoir ajouter des workers 

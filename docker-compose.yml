@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile-planner
     ports:
       - "3000:3000"
+    networks:
+      - js-net
 
   worker:
     build:
@@ -14,3 +16,9 @@ services:
       dockerfile: Dockerfile-worker
     ports:
       - "8080:8080"
+    networks:
+      - js-net
+    # scale: 4
+networks:
+  js-net:
+    driver: bridge
