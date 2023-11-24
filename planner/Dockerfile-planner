@@ -1,0 +1,23 @@
+# Utilisez une image Node.js
+FROM node:14
+
+# Créez le répertoire de travail
+WORKDIR /app
+
+# Copiez les fichiers nécessaires
+COPY package.json yarn.lock ./
+
+# Supprimez le fichier yarn.lock existant (ajout de cette ligne)
+RUN rm yarn.lock
+
+# Installez les dépendances
+RUN yarn install
+
+# Copiez le reste des fichiers
+COPY . .
+
+# Exposez le port sur lequel le planner écoute
+EXPOSE 3000
+
+# Commande par défaut pour démarrer le planner
+CMD ["node", "main.js"]

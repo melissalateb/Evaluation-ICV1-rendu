@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  planner:
+    build:
+      context: ./planner
+      dockerfile: Dockerfile-planner
+    ports:
+      - "3000:3000"
+
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile-worker
+    ports:
+      - "8080:8080"
