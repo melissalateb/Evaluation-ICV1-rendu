@@ -15,5 +15,11 @@
 1 - Ajout du parametre type pour chaque worker pour pouvoir affilier chaque opération avec un worker
 2 - Ajout de plusieurs conditions et plusieurs vérificatios pour filtrer le type de tache pour chaque worker
 # Exercice 4: Etapes
-2 - Revenir sur les workers generalistes
-1 - Ajout d'un moyen de creer une disaine de workers et un seul planner
+1 - Revenir sur les workers generalistes
+2 - Ajout d'un moyen de creer une disaine de workers et un seul planner
+# Exercice 5: Etapes 
+1 - mélanger les workers avec 
+
+    10 workers généralistes
+    10 workers spécialisés en multiplications
+    10 workers spécialisés en additions
