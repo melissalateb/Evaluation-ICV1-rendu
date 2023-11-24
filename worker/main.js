@@ -8,6 +8,7 @@ const PLANNER =
   process.env.PLANNER !== undefined
     ? process.env.PLANNER
     : 'http://localhost:3000'
+// ces deux lignes MULT et ADD sont chargeées de spécifier le types de tâches que les workeurs peuvent gerer
 const MULT =
   process.env.MULT !== undefined ? JSON.parse(process.env.MULT) : true
 const ADD = process.env.ADD !== undefined ? JSON.parse(process.env.ADD) : true
@@ -25,7 +26,7 @@ const register = () =>
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ url: ADDRESS, id }),
+    body: JSON.stringify({ url: ADDRESS, id}),
   })
 let mult = false
 let add = false

@@ -11,3 +11,6 @@
 # Exercice 2: Etapes
 1 - Modification de la ligne 12 pour ajouter une adress du worker : let workers = ['http://localhost:8080']
 2 - Execution du script './connect.sh 8080 8070' pour pouvoir ajouter des workers 
+# Exercice 4: Etapes
+1 - Ajout du parametre type pour chaque worker pour pouvoir affilier chaque opération avec un worker
+2 - Ajout de plusieurs conditions et plusieurs vérificatios pour filtrer le type de tache pour chaque worker
